@@ -9,6 +9,14 @@ namespace CreateRegexProgram
     public class RegexPatterns
     {
         string pattern = "^[A-Za-z]{2,}$";
+            public void Validating(string input)
+        {
+            Regex regex = new Regex(pattern);
+            Console.WriteLine("Validating the First Name");
+            ValidateFirstName(input);
+            Console.WriteLine("Validating the Last Name");
+            ValidateLastName(input);
+        }
         public void ValidateFirstName(string input)
         {
             Regex regex = new Regex(pattern);
@@ -23,11 +31,18 @@ namespace CreateRegexProgram
                 Console.WriteLine("Invalid Name");
             }
         }
-        public void Validating()
+        public void ValidateLastName(string inputLastname)
         {
             Regex regex = new Regex(pattern);
-            Console.WriteLine("First Name Validating");
+            bool result = regex.IsMatch(inputLastname);
+            if (result)
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
         }
     }
 }
-     
