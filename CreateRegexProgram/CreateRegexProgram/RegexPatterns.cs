@@ -9,13 +9,12 @@ namespace CreateRegexProgram
     public class RegexPatterns
     {
         string pattern = "^[A-Za-z]{2,}$";
-            public void Validating(string input)
+        string patternEmail = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        public void Validating(string input)
         {
-            Regex regex = new Regex(pattern);
-            Console.WriteLine("Validating the First Name");
-            ValidateFirstName(input);
-            Console.WriteLine("Validating the Last Name");
-            ValidateLastName(input);
+            Regex regex = new Regex(patternEmail);
+            Console.WriteLine("Validating the Email Addr.");
+            ValidateEmail(input);
         }
         public void ValidateFirstName(string input)
         {
@@ -42,6 +41,19 @@ namespace CreateRegexProgram
             else
             {
                 Console.WriteLine("Invalid");
+            }
+        }
+        public void ValidateEmail(string inputEmail)
+        {
+            Regex regex = new Regex(patternEmail);
+            bool res = regex.IsMatch(inputEmail);
+            if (res)
+            {
+                Console.WriteLine("Valid Email");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Email");
             }
         }
     }
