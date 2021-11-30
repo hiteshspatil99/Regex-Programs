@@ -12,7 +12,7 @@ namespace CreateRegexProgram
             while (flag)
             {
                 Console.WriteLine("User Registration Validate using Regular Expression");
-                Console.WriteLine("Choose Option to Execute the Regex Program: \n 1. Validate First Name, \n 2. Validate Last Name, \n 3. Email Check \n 4. Mobile Number \n 5.Exit");
+                Console.WriteLine("Choose Option to Execute the Regex Program: \n 1. Validate First Name, \n 2. Validate Last Name, \n 3. Email Check \n 4. Mobile Number \n 5. Password Rule=1 \n 6. Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -44,6 +44,12 @@ namespace CreateRegexProgram
                         checkpattern.Validating(inputMoNo);
                         break;
                     case 5:
+                        Console.WriteLine("Enter the Password to Check Validation");
+                        string inputPassword = Console.ReadLine();
+                   checkpattern.ValidatePassword(inputPassword);
+                     checkpattern.Validating(inputPassword);
+                        break;
+                    case 6:
                         flag = false;
                         break;
 

@@ -10,10 +10,10 @@ namespace CreateRegexProgram
         string pattern = "^[A-Za-z]{2,}$";
         string patternEmail = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
         string patternMobile_Number = @"/^(\+\d{1,3}[- ]?)?\d{10}$/";
-        string patternPassWord = @"[a-z,A-Z,0-9]{8,}$";
+        public static string REGEX_PASSWORD1 = @"[a-z,A-Z,0-9]{8,}$";
         public void Validating(string input)
         {
-            Regex regex = new Regex(patternPassWord);
+            Regex regex = new Regex(REGEX_PASSWORD1);
             Console.WriteLine("Validating the Mobile Number");
             ValidateMobileNo(input);
         }
@@ -68,6 +68,19 @@ namespace CreateRegexProgram
             else
             {
                 Console.WriteLine("Invalid Mobile Number");
+            }
+        }
+        public void ValidatePassword(string inputPassword)
+        {
+            Regex regex = new Regex(REGEX_PASSWORD1);
+            bool res = regex.IsMatch(inputPassword);
+            if (res)
+            {
+                Console.WriteLine("Password is Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password");
             }
         }
     }
