@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace CreateRegexProgram
@@ -10,11 +9,13 @@ namespace CreateRegexProgram
     {
         string pattern = "^[A-Za-z]{2,}$";
         string patternEmail = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        string patternMobile_Number = @"/^(\+\d{1,3}[- ]?)?\d{10}$/";
+        string patternPassWord = @"[a-z,A-Z,0-9]{8,}$";
         public void Validating(string input)
         {
-            Regex regex = new Regex(patternEmail);
-            Console.WriteLine("Validating the Email Addr.");
-            ValidateEmail(input);
+            Regex regex = new Regex(patternPassWord);
+            Console.WriteLine("Validating the Mobile Number");
+            ValidateMobileNo(input);
         }
         public void ValidateFirstName(string input)
         {
@@ -54,6 +55,19 @@ namespace CreateRegexProgram
             else
             {
                 Console.WriteLine("Invalid Email");
+            }
+        }
+        public void ValidateMobileNo(string inputMobileNo)
+        {
+            Regex regex = new Regex(patternMobile_Number);
+            bool res = regex.IsMatch(inputMobileNo);
+            if (res)
+            {
+                Console.WriteLine("Valid Mobile Number");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Mobile Number");
             }
         }
     }
