@@ -46,8 +46,8 @@ namespace CreateRegexProgram
                     case 5:
                         Console.WriteLine("Enter the Password to Check Validation");
                         string inputPassword = Console.ReadLine();
-                   checkpattern.ValidatePassword(inputPassword);
-                     checkpattern.Validating(inputPassword);
+                        checkpattern.ValidatePassword(inputPassword);
+                        checkpattern.Validating(inputPassword);
                         break;
                     case 6:
                         flag = false;
